@@ -87,19 +87,38 @@
   border-bottom-right-radius: 10px;
 }
 
-.bubbleContainer{
-
+.bubbleContainer {
+  width: 50%;
+  display: flex;
+  align-items: end;
+  gap: 8px;
+  justify-content: space-between;
 }
 
-.bubble{
-
+.bubble {
+  width: 400px; /* fixed width (no shifting) */
+  min-height: 70px; /* fixed height */
+  background-color: white;
+  color: #555;
+  padding: 16px 20px;
+  font-size: 16px; /* smaller text so it wraps better */
+  line-height: 1.4; /* improves readability when wrapped */
+  border-radius: 20px 20px 0px 20px;
+  word-wrap: break-word;
+  overflow-wrap: break-word; /* ensures wrapping works across browsers */
+  display: flex;
+  align-items: center;
 }
 
-.bubble img{
-
+.bubbleContainer img {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  object-fit: cover;
+  background-color: #dd4c62;
 }
 
-.certificate{
+.certificate {
   width: 60%;
   display: flex;
   align-items: center;
@@ -111,11 +130,34 @@
   color: #ddd;
 }
 
-.certificate img{
+.certificate img {
   width: 70px;
   height: 70px;
 }
 
-.contactLink{
+.contactLink {
   margin-bottom: 50px;
+}
+
+.contactButton {
+  position: relative;
+}
+
+.circleText {
+  letter-spacing: 3px;
+  font-size: 20px;
+}
+
+.arrow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
 }
