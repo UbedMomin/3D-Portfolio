@@ -38,7 +38,7 @@ const listVariants = {
     opacity: 1,
     transition: {
       duration: 3,
-      staggerChildern: 1,
+      staggerChildren: 1,
     },
   },
 };
@@ -81,7 +81,7 @@ const Test = () => {
         <motion.ul
           variants={listVariants}
           initial="initial"
-          animate="animatemotion."
+          animate="animate"
         >
           <motion.li variants={listVariants}>JavaScript</motion.li>
           <motion.li variants={listVariants}>Rect</motion.li>

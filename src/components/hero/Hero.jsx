@@ -8,10 +8,10 @@ const Hero = () => {
     <div className="hero">
       <div className="hSection left">
         {/* TITLE */}
-        <h1 className="hTitle">
+        <motion.h1 initial={{y:-100, opacity:0}} animate={{y:0, opacity:1}} transition={{duration:1}} className="hTitle">
           Hey There, <br />
           <span>I'm Ubed!</span>
-        </h1>
+        </motion.h1>
         {/* AWARDS */}
         <div className="awards">
           <h2>Top Rated Designer</h2>
