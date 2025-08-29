@@ -1,29 +1,76 @@
 import "./hero.css";
 import React from "react";
 import Speech from "./Speech";
-import { motion } from "framer-motion";
+import { animate, easeIn, easeInOut, motion, stagger } from "framer-motion";
+
+const awardVariants = {
+  initial: {
+    x: -100,
+    opacity: 0,
+  },
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 1,
+      staggerChildern: 0.2,
+    },
+  },
+};
+
+const followVariants = {
+  initial: {
+    y: -100,
+    opacity: 0,
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 1,
+      staggerChildern: 0.2,
+    },
+  },
+};
 
 const Hero = () => {
   return (
     <div className="hero">
       <div className="hSection left">
         {/* TITLE */}
-        <motion.h1 initial={{y:-100, opacity:0}} animate={{y:0, opacity:1}} transition={{duration:1}} className="hTitle">
+        <motion.h1
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="hTitle"
+        >
           Hey There, <br />
           <span>I'm Ubed!</span>
         </motion.h1>
         {/* AWARDS */}
-        <div className="awards">
-          <h2>Top Rated Designer</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <div className="awardList">
-            <img src="/award1.png" alt="" />
-            <img src="/award2.png" alt="" />
-            <img src="/award3.png" alt="" />
-          </div>
-        </div>
+        <motion.div
+          variants={awardVariants}
+          initial="initial"
+          animate="animate"
+          className="awards"
+        >
+          <motion.h2 variants={awardVariants}>Top Rated Designer</motion.h2>
+          <motion.p variants={awardVariants}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </motion.p>
+          <motion.div variants={awardVariants} className="awardList">
+            <motion.img variants={awardVariants} src="/award1.png" alt="" />
+            <motion.img variants={awardVariants} src="/award2.png" alt="" />
+            <motion.img variants={awardVariants} src="/award3.png" alt="" />
+          </motion.div>
+        </motion.div>
         {/* SCROLL SVG */}
-        <a href="#services" className="scroll">
+        <motion.a
+          animate={{ y: [0, 5], opacity: [0, 1, 0] }}
+          transition={{ repeat: Infinity, duration: 4, ease: easeInOut }}
+          href="#services"
+          className="scroll"
+        >
           <svg
             width="50px"
             height="50px"
@@ -49,25 +96,30 @@ const Hero = () => {
               strokeLinecap="round"
             />
           </svg>
-        </a>
+        </motion.a>
       </div>
 
       <div className="hSection right">
         {/* FOLLOW */}
-        <div className="follow">
-          <a href="/">
+        <motion.div
+          variants={followVariants}
+          initial="initial"
+          animate="animate"
+          className="follow"
+        >
+          <motion.a variants={followVariants} href="/">
             <img src="/instagram.png" alt="" />
-          </a>
-          <a href="/">
+          </motion.a>
+          <motion.a variants={followVariants} href="/">
             <img src="/facebook.png" alt="" />
-          </a>
-          <a href="/">
+          </motion.a>
+          <motion.a variants={followVariants} href="/">
             <img src="/youtube.png" alt="" />
-          </a>
-          <div className="followTextContainer">
+          </motion.a>
+          <motion.div variants={followVariants} className="followTextContainer">
             <div className="followText">FOLLOW ME</div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
         {/* BUBBLE */}
         <Speech />
         {/* CERTIFICATE */}
@@ -118,7 +170,7 @@ const Hero = () => {
       <div className="bg">
         {/* 3D */}
         <div className="hImg">
-           <img src="hero.png" alt="" />
+          <img src="hero.png" alt="" />
         </div>
       </div>
     </div>
